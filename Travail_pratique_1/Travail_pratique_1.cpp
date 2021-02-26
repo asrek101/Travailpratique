@@ -56,14 +56,11 @@ int main()
 			}
 			for (i; i < count; i++)
 			{
-				
 				std::cout << "Veuillez saisir le nom du tigre" << std::endl;
 				std::cin >> nom;
 				std::cout << "Veuillez saisir le poid du tigre" << std::endl;
 				std::cin >> poids;
 			    animaux[i] = new Tigre(nom, poids);
-				 
-
 			}
 			break;
 		case 2:
@@ -80,10 +77,7 @@ int main()
 				std::cin >> poids;
 				std::cout << "Veuillez saisir le type d'enclot 0 pour un enclot sans herbe / 1 pour un enclot avec herbe" << std::endl;
 				std::cin >> type;
-				
-				
 				animaux[i] = new Singe(nom, poids, type);
-
 			}
 			break;
 		case 3:
@@ -103,13 +97,11 @@ int main()
 				if (tailleenclot < 2000) {
 					tailleenclot = 2000;
 				}
-
-				animaux[i] = new Rhinoceros(nom, poids, tailleenclot);
+			animaux[i] = new Rhinoceros(nom, poids, tailleenclot);
 			}
 			break;
 		case 4:
 			affichercompte_rendu(count, diete, animaux);
-			
 			break;
 		case 5:
 			for (int y=0; y < count; y++)
