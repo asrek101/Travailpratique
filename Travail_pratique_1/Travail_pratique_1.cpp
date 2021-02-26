@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cctype>
 
 #include "Diete.h"
 #include "Animaux.h"
@@ -10,6 +9,7 @@
 #include "Travail_pratique_1.h"
 
 void affichercompte_rendu(int count, Diete diete[10], Animaux* animaux[250]);
+void ajoutertigre(Animaux* animaux[250], int count, int i);
 int main()
 {
 	int check = 0;
@@ -49,7 +49,8 @@ int main()
 
 		{
 		case 1:
-			std::cout << "Combien de tigre voulez vous saisir?" << std::endl;
+			ajoutertigre(animaux, count, i);
+		/*	std::cout << "Combien de tigre voulez vous saisir?" << std::endl;
 			std::cin >> temp;
 			if (temp > 1) {
 				count += temp;
@@ -61,7 +62,7 @@ int main()
 				std::cout << "Veuillez saisir le poid du tigre" << std::endl;
 				std::cin >> poids;
 			    animaux[i] = new Tigre(nom, poids);
-			}
+			}*/
 			break;
 		case 2:
 			std::cout << "Combien de singe voulez vous saisir?" << std::endl;
@@ -127,7 +128,6 @@ void affichercompte_rendu(int count, Diete diete[10], Animaux* animaux[250])
 	}
 	for (int i = 0; i < count; i++)
 	{
-
 		totalviande += diete[i].getViande();
 		totalfruit += diete[i].getFruit();
 		totalherbe += diete[i].getHerbe();
@@ -136,4 +136,22 @@ void affichercompte_rendu(int count, Diete diete[10], Animaux* animaux[250])
 	std::cout << " Viande : " << totalviande << " kg" << std::endl;
 	std::cout << " Fruits : " << totalfruit << " kg" << std::endl;
 	std::cout << " Herbe : " << totalherbe << " kg" << std::endl;
+}
+void ajoutertigre(Animaux* animaux[250],int count,int i) {
+	std::string nom;
+	float poids;
+	int temp;
+	std::cout << "Combien de tigre voulez vous saisir?" << std::endl;
+	std::cin >> temp;
+	if (temp > 1) {
+		count += temp;
+	}
+	for (i; i < count; i++)
+	{
+		std::cout << "Veuillez saisir le nom du tigre" << std::endl;
+		std::cin >> nom;
+		std::cout << "Veuillez saisir le poid du tigre" << std::endl;
+		std::cin >> poids;
+		animaux[i] = new Tigre(nom, poids);
+	}
 }
