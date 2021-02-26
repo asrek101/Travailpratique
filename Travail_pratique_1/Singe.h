@@ -10,7 +10,7 @@ class Singe : public Animaux
 {
 public:
 	int type;
-	Singe(std::string nom, float poids, int type);
+	Singe(std::string nom, float poids, bool type);
 	void affiche();
 	Diete diete();
 	~Singe();

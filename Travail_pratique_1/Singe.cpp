@@ -2,7 +2,7 @@
 #include "Diete.h"
 
 
-Singe::Singe(std::string nom, float poids,int type) : Animaux(nom, poids) {
+Singe::Singe(std::string nom, float poids,bool type) : Animaux(nom, poids) {
 	this->type = type;
 }
 void Singe::affiche() {

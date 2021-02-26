@@ -4,6 +4,10 @@
 
 Rhinoceros::Rhinoceros(std::string nom, float poids, int espace) : Animaux(nom, poids) {
 	this->espace = espace;
+	if (this->espace < 2000) {
+		this->espace = 2000;
+	}
+	
 	}
 void Rhinoceros::affiche() {
 	std::cout << "Rhinoceros : " << this->nom << " (" << this->poids << " kg) " << std::endl;
