@@ -18,27 +18,27 @@ int bonusEffacer(Animaux* animaux[250], int i);
 
 int main()
 {
-	int i = 5;
+	int i = 0;
 	int choix;
 
 	Animaux* animaux[250];
 
-	animaux[0] = new Tigre("Alice", 120.8);
+	/*animaux[0] = new Tigre("Alice", 120.8);
 	animaux[1] = new Singe("Bob", 10.5, true);
 	animaux[2] = new Singe("Monke", 8.7, false);
 	animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
-	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
+	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);*/
 
 	do {
 
 		std::cout << "Veuillez choisir parmis les options suivante " << std::endl;
-		std::cout << "1 pour ajouter un tigre" << std::endl;
-		std::cout << "2 pour ajouter un singe" << std::endl;
-		std::cout << "3 pour ajouter un rhinocéros " << std::endl;
-		std::cout << "4 Afficher " << std::endl;
-		std::cout << "5 pour quitter " << std::endl;
-		std::cout << "6 bonus effacer " << std::endl;
-		std::cout << i << std::endl;
+		std::cout << "1 : pour ajouter un tigre" << std::endl;
+		std::cout << "2 : pour ajouter un singe" << std::endl;
+		std::cout << "3 : pour ajouter un rhinocéros " << std::endl;
+		std::cout << "4 : Afficher " << std::endl;
+		std::cout << "5 : pour quitter " << std::endl;
+		std::cout << "6 : bonus effacer " << std::endl;
+//		std::cout << i << std::endl;
 		std::cin >> choix;
 		switch (choix)
 		{
