@@ -1,6 +1,6 @@
 #include "Rhinoceros.h"
 #include "Diete.h"
-
+#include <iostream>
 
 Rhinoceros::Rhinoceros(std::string nom, float poids, int espace) : Animaux(nom, poids) {
 	this->espace = espace;

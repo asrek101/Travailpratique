@@ -1,15 +1,17 @@
 #ifndef __Rhinoceros_H__
 #define __Rhinoceros_H__
 
-#include <iostream>
+
 
 #include "Animaux.h"
 
 
 class Rhinoceros : public Animaux
 {
-public:
+protected:
 	int espace;
+public:
+	
 	Rhinoceros(std::string nom, float poids, int espace);
 	void affiche();
 	Diete diete();

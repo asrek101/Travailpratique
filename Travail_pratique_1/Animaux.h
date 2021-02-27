@@ -1,7 +1,5 @@
 #ifndef __ANIMAUX_H__
 #define __ANIMAUX_H__
-
-#include <string>
 #include <iostream>
 #include "Diete.h"
 class Animaux

@@ -14,7 +14,7 @@ void ajouterTigre(Animaux* animaux[250]);
 void ajouterSinge(Animaux* animaux[250]);
 void ajouterRhino(Animaux* animaux[250]);
 void bonusEffacer(Animaux* animaux[250]);
-static int i = 0;
+static int i = 5;
 
 int main()
 {

@@ -1,6 +1,8 @@
 #include "Singe.h"
 #include "Diete.h"
 
+#include <iostream>
+
 
 Singe::Singe(std::string nom, float poids,bool type) : Animaux(nom, poids) {
 	this->type = type;

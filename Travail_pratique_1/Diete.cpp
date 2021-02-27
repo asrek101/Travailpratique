@@ -1,4 +1,5 @@
 #include "Diete.h"
+#include <iostream>
 
 Diete::Diete(float viande, float fruit, float herbe) {
 	this->viande = viande;

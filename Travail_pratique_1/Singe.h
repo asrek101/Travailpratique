@@ -1,15 +1,14 @@
 #ifndef __SINGE_H__
 #define __SINGE_H__
 
-#include <iostream>
-
 #include "Animaux.h"
-
 
 class Singe : public Animaux
 {
-public:
+protected:
 	int type;
+public:
+	
 	Singe(std::string nom, float poids, bool type);
 	void affiche();
 	Diete diete();
