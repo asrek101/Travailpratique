@@ -13,6 +13,7 @@ class Tigre : public Animaux
 	void affiche();
 	Diete diete();
 	~Tigre();
+	std::string getnom();
 };
 
 #endif

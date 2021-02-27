@@ -1,3 +1,4 @@
+//Alain gionet @Kosmosqc@gmail.com
 #include <iostream>
 #include <string>
 
@@ -8,18 +9,15 @@
 #include "Rhinoceros.h"
 #include "Travail_pratique_1.h"
 
-void affichercompte_rendu( Animaux* animaux[250]);
-void ajoutertigre(Animaux* animaux[250]);
-void ajoutersinge(Animaux* animaux[250]);
-void ajouterrhino(Animaux* animaux[250]);
-
+void afficherCompte_rendu( Animaux* animaux[250]);
+void ajouterTigre(Animaux* animaux[250]);
+void ajouterSinge(Animaux* animaux[250]);
+void ajouterRhino(Animaux* animaux[250]);
+void bonusEffacer(Animaux* animaux[250]);
 static int i =5;
 
 int main()
-
-
 {
-	int i = 0;
 	int choix;
 
 	Animaux* animaux[250];
@@ -35,24 +33,25 @@ int main()
 		std::cout << "Veuillez choisir parmis les options suivante " << std::endl;
 		std::cout << "1 pour ajouter un tigre" << std::endl;
 		std::cout << "2 pour ajouter un singe" << std::endl;
-		std::cout << "3 pour ajouter un rhinocéros" << std::endl;
-		std::cout << "4 Afficher" << std::endl;
-		std::cout << "5 pour quitter" << std::endl;
+		std::cout << "3 pour ajouter un rhinocéros " << std::endl;
+		std::cout << "4 Afficher " << std::endl;
+		std::cout << "5 pour quitter " << std::endl;
+		std::cout << "6 bonus effacer " << std::endl;
 		std::cout << i << std::endl;
 		std::cin >> choix;
 		switch (choix)
 		{
 		case 1:
-			ajoutertigre(animaux);
+			ajouterTigre(animaux);
 			break;
 		case 2:
-			ajoutersinge(animaux);
+			ajouterSinge(animaux);
 			break;
 		case 3:
-			ajouterrhino(animaux);
+			ajouterRhino(animaux);
 			break;
 		case 4:
-			affichercompte_rendu(animaux);
+			afficherCompte_rendu(animaux);
 			break;
 		case 5:
 			if (i > 0) {
@@ -62,12 +61,16 @@ int main()
 				}
 			}
 			break;
+		case 6:
+		{
+			bonusEffacer(animaux);
+		}
 		default:
 			break;
 		}
 	} while (choix != 5);
 }
-void affichercompte_rendu(Animaux* animaux[250])
+void afficherCompte_rendu(Animaux* animaux[250])
 {
 	float totalviande = 0;
 	float totalfruit = 0;
@@ -76,6 +79,7 @@ void affichercompte_rendu(Animaux* animaux[250])
 	{
 		animaux[x]->affiche();
 		animaux[x]->diete().afficherdiete();
+		
 		totalviande += animaux[x]->diete().getViande();
 	    totalfruit += animaux[x]->diete().getFruit();
 		totalherbe += animaux[x]->diete().getHerbe();
@@ -86,7 +90,7 @@ void affichercompte_rendu(Animaux* animaux[250])
 	std::cout << " Fruits : " << totalfruit << " kg" << std::endl;
 	std::cout << " Herbe : " << totalherbe << " kg" << std::endl;
 }
-void ajoutertigre(Animaux* animaux[250]) {
+void ajouterTigre(Animaux* animaux[250]) {
 	std::string nom;
 	float poids;
 	int temp=i;
@@ -105,7 +109,7 @@ void ajoutertigre(Animaux* animaux[250]) {
 	}
 	
 }
-void ajoutersinge(Animaux* animaux[250]) {
+void ajouterSinge(Animaux* animaux[250]) {
 	std::string nom;
 	float poids;
 	int temp=i;
@@ -127,7 +131,7 @@ void ajoutersinge(Animaux* animaux[250]) {
 	}
 
 }
-void ajouterrhino(Animaux* animaux[250]) {
+void ajouterRhino(Animaux* animaux[250]) {
 	std::string nom;
 	float poids;
 	int temp=i;
@@ -148,4 +152,27 @@ void ajouterrhino(Animaux* animaux[250]) {
 		animaux[i] = new Rhinoceros(nom, poids, tailleenclot);
 	}
 
+}
+void bonusEffacer(Animaux* animaux[250]) {
+	if (i>0){
+		std::string nom;
+		std::cout << "Veillez saisir le nom de l'animal a effacer de la liste" << std::endl;
+		std::cin >> nom;
+
+		for (int y = 0; y < i; y++)
+		{
+			if (animaux[y]->getnom() == nom) {
+				std::cout << "animal trouver" << std::endl;
+				delete animaux[y];
+				animaux[y] = animaux[i-1];
+				i=i - 1;
+			}
+			else {
+				std::cout << "animal introuvable" << std::endl;
+			}
+			;
+		}
+	}
+	else 
+		std::cout << "erreur tableau vide";
 }

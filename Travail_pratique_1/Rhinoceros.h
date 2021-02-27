@@ -14,6 +14,7 @@ public:
 	void affiche();
 	Diete diete();
 	~Rhinoceros();
+	std::string getnom();
 };
 
 #endif

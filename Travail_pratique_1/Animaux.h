@@ -17,7 +17,7 @@ class Animaux
 		virtual void affiche();
 		virtual Diete diete() = 0;
 		virtual ~Animaux();
-		
+		virtual std::string getnom()= 0;
 };
 
 

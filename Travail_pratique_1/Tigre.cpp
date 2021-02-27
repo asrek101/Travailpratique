@@ -18,3 +18,6 @@ Diete Tigre::diete() {
 	Diete t = Diete(viande,0,0);
 	return t;
 }
+std::string Tigre::getnom() {
+	return this->nom;
+}

@@ -30,3 +30,6 @@ Diete Rhinoceros::diete() {
 	Diete t = Diete(0, fruit, herbe);
 	return t;
 }
+std::string Rhinoceros::getnom() {
+	return this->nom;
+}

@@ -14,6 +14,7 @@ public:
 	void affiche();
 	Diete diete();
 	~Singe();
+	std::string getnom();
 };
 
 #endif

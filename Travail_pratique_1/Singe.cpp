@@ -29,3 +29,6 @@ Diete Singe::diete() {
 	Diete t =Diete(viande, fruit, herbe);
 	return t;
 }
+std::string Singe::getnom() {
+	return this->nom;
+}
