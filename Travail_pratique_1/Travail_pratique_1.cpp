@@ -9,25 +9,25 @@
 #include "Rhinoceros.h"
 #include "Travail_pratique_1.h"
 
-void afficherCompte_rendu(Animaux* animaux[250]);
-void ajouterTigre(Animaux* animaux[250]);
-void ajouterSinge(Animaux* animaux[250]);
-void ajouterRhino(Animaux* animaux[250]);
-void bonusEffacer(Animaux* animaux[250]);
-static int i = 0;
+void afficherCompte_rendu(Animaux* animaux[250], int i);
+int ajouterTigre(Animaux* animaux[250], int i);
+int ajouterSinge(Animaux* animaux[250], int i);
+int ajouterRhino(Animaux* animaux[250], int i);
+int bonusEffacer(Animaux* animaux[250], int i);
+
 
 int main()
 {
-	
+	int i = 5;
 	int choix;
 
 	Animaux* animaux[250];
 
-	/*animaux[0] = new Tigre("Alice", 120.8);
+	animaux[0] = new Tigre("Alice", 120.8);
 	animaux[1] = new Singe("Bob", 10.5, true);
 	animaux[2] = new Singe("Monke", 8.7, false);
 	animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
-	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);*/
+	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
 
 	do {
 
@@ -43,16 +43,16 @@ int main()
 		switch (choix)
 		{
 		case 1:
-			ajouterTigre(animaux);
+			i = ajouterTigre(animaux, i);
 			break;
 		case 2:
-			ajouterSinge(animaux);
+			i = ajouterSinge(animaux, i);
 			break;
 		case 3:
-			ajouterRhino(animaux);
+			i = ajouterRhino(animaux, i);
 			break;
 		case 4:
-			afficherCompte_rendu(animaux);
+			afficherCompte_rendu(animaux, i);
 			break;
 		case 5:
 			if (i > 0) {
@@ -64,14 +64,14 @@ int main()
 			break;
 		case 6:
 		{
-			bonusEffacer(animaux);
+			i = bonusEffacer(animaux, i);
 		}
 		default:
 			break;
 		}
 	} while (choix != 5);
 }
-void afficherCompte_rendu(Animaux* animaux[250])
+void afficherCompte_rendu(Animaux* animaux[250], int i)
 {
 
 	float totalviande = 0;
@@ -92,7 +92,7 @@ void afficherCompte_rendu(Animaux* animaux[250])
 	std::cout << " Fruits : " << totalfruit << " kg" << std::endl;
 	std::cout << " Herbe : " << totalherbe << " kg" << std::endl;
 }
-void ajouterTigre(Animaux* animaux[250]) {
+int ajouterTigre(Animaux* animaux[250], int i) {
 	std::string nom;
 	float poids;
 	int temp = i;
@@ -109,9 +109,9 @@ void ajouterTigre(Animaux* animaux[250]) {
 		std::cin >> poids;
 		animaux[i] = new Tigre(nom, poids);
 	}
-
+	return i;
 }
-void ajouterSinge(Animaux* animaux[250]) {
+int ajouterSinge(Animaux* animaux[250], int i) {
 	std::string nom;
 	float poids;
 	int temp = i;
@@ -131,9 +131,9 @@ void ajouterSinge(Animaux* animaux[250]) {
 		std::cin >> type;
 		animaux[i] = new Singe(nom, poids, type);
 	}
-
+	return i;
 }
-void ajouterRhino(Animaux* animaux[250]) {
+int ajouterRhino(Animaux* animaux[250], int i) {
 	std::string nom;
 	float poids;
 	int temp = i;
@@ -153,10 +153,11 @@ void ajouterRhino(Animaux* animaux[250]) {
 		std::cin >> tailleenclot;
 		animaux[i] = new Rhinoceros(nom, poids, tailleenclot);
 	}
-
+	return i;
 }
-void bonusEffacer(Animaux* animaux[250]) {
-	if (i > 0) {
+int bonusEffacer(Animaux* animaux[250], int i) {
+	if (i > 0)
+	{
 		std::string nom;
 		std::cout << "Veillez saisir le nom de l'animal a effacer de la liste" << std::endl;
 		std::cin >> nom;
@@ -164,18 +165,43 @@ void bonusEffacer(Animaux* animaux[250]) {
 
 		for (int y = 0; y < i; y++)
 		{
-			if (animaux[y]->getnom() == nom) {
+			if (animaux[y]->getnom() == nom)
+			{
 				std::cout << "animal trouver" << std::endl;
-				delete animaux[y];
-				animaux[y] = animaux[i - 1];
-				i = i - 1;
 				check = true;
+				if (y == i - 1 && i > 1)
+
+				{
+					delete animaux[y];
+
+				}
+				else if (y == 0 && i == 1)
+				{
+					delete animaux[y];
+				}
+				else
+				{
+					for (y; y < i - 1; y++)
+					{
+						animaux[y] = animaux[y + 1];
+					}
+
+				}
 			}
+
 		}
+		i = i - 1;
 		if (!check) {
 			std::cout << "animal introuvable" << std::endl;
 		}
+
+		return i;
+
+
 	}
 	else
+	{
 		std::cout << "erreur tableau vide" << std::endl;
+	}
+
 }
