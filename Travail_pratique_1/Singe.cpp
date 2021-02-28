@@ -17,7 +17,7 @@ void Singe::affiche() {
 	}
 }
 Singe::~Singe() {
-	std::cout << "singe detruit" << std::endl;
+	std::cout << "**singe detruit**" << std::endl;
 }
 Diete Singe::diete() {
 	float viande = 0;

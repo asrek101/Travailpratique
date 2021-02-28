@@ -13,31 +13,33 @@ void afficherCompte_rendu(Animaux* animaux[250], int i);
 int ajouterTigre(Animaux* animaux[250], int i);
 int ajouterSinge(Animaux* animaux[250], int i);
 int ajouterRhino(Animaux* animaux[250], int i);
+void destruction(Animaux* animaux[250], int i);
 int bonusEffacer(Animaux* animaux[250], int i);
+
 
 
 int main()
 {
-	int i = 5;
+	int i = 0;
 	int choix;
 
 	Animaux* animaux[250];
-
+	/*i=5;
 	animaux[0] = new Tigre("Alice", 120.8);
 	animaux[1] = new Singe("Bob", 10.5, true);
 	animaux[2] = new Singe("Monke", 8.7, false);
 	animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
-	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
+	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);*/
 
 	do {
 
 		std::cout << "Veuillez choisir parmis les options suivante " << std::endl;
-		std::cout << "1 : pour ajouter un tigre" << std::endl;
-		std::cout << "2 : pour ajouter un singe" << std::endl;
-		std::cout << "3 : pour ajouter un rhinocéros " << std::endl;
-		std::cout << "4 : Afficher " << std::endl;
-		std::cout << "5 : pour quitter " << std::endl;
-		std::cout << "6 : bonus effacer " << i<< std::endl;
+		std::cout << "1 : Pour ajouter un tigre." << std::endl;
+		std::cout << "2 : Pour ajouter un singe." << std::endl;
+		std::cout << "3 : Pour ajouter un rhinocéros. " << std::endl;
+		std::cout << "4 : Afficher le compte-rendu du parc. " << std::endl;
+		std::cout << "5 : Pour quitter " << std::endl;
+		std::cout << "6 : Bonus effacer " << i << std::endl;
 		std::cin >> choix;
 		switch (choix)
 		{
@@ -54,12 +56,7 @@ int main()
 			afficherCompte_rendu(animaux, i);
 			break;
 		case 5:
-			if (i > 0) {
-				for (int y = 0; y < i; y++)
-				{
-					delete animaux[y];
-				}
-			}
+			destruction(animaux, i);
 			break;
 		case 6:
 		{
@@ -154,6 +151,14 @@ int ajouterRhino(Animaux* animaux[250], int i) {
 	}
 	return i;
 }
+void destruction(Animaux* animaux[250], int i) {
+	if (i > 0) {
+		for (int y = 0; y < i; y++)
+		{
+			delete animaux[y];
+		}
+	}
+}
 int bonusEffacer(Animaux* animaux[250], int i) {
 	if (i > 0)
 	{
@@ -168,31 +173,29 @@ int bonusEffacer(Animaux* animaux[250], int i) {
 			{
 				std::cout << "animal trouver" << std::endl;
 				check = true;
-				if ((y == i - 1 && i > 1) || (y == 0 && i == 1))                             
-																								
+				if ((y == i - 1 && i > 1) || (y == 0 && i == 1))                                 //Si le tableau a une seul case et le nom est trouver la case sera effacer, meme chose si l'animal se trouve a                
+																								 //la derniere case
 				{
 					delete animaux[y];
 					i = i - 1;
 				}
 				else
 				{
-					for (y; y < i - 1; y++)
+					for (y; y < i - 1; y++)														// Si l'animal est trouver il sera remplace par les animaux qui le succede
 					{
 						animaux[y] = animaux[y + 1];
 						i = i - 1;
 					}
 				}
 			}
-			
+
 		}
-		
+
 		if (!check) {
 			std::cout << "animal introuvable" << std::endl;
 		}
 
 		return i;
-
-
 	}
 	else
 	{

@@ -14,7 +14,7 @@ void Rhinoceros::affiche() {
 	std::cout << " Enclos de " << this->espace << " metre-carres" << std::endl;
 }
 Rhinoceros::~Rhinoceros() {
-	std::cout << "Rhinoceros detruit" << std::endl;
+	std::cout << "**Rhinoceros detruit**" << std::endl;
 }
 Diete Rhinoceros::diete() {
 	float temp = ((this->espace / 1000) * 10);
