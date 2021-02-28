@@ -1,4 +1,4 @@
-//Alain gionet @Kosmosqc@gmail.com
+//Alain gionet 
 #include <iostream>
 #include <string>
 
