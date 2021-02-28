@@ -12,5 +12,5 @@ void Animaux::affiche() {
 	std::cout << "Animaux" << this->nom <<std::endl;
 }
 Animaux::~Animaux() {
-	
+//	std::cout << "Animaux detruit" <<std::endl;
 }
