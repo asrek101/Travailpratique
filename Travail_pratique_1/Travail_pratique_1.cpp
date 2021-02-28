@@ -18,16 +18,16 @@ int bonusEffacer(Animaux* animaux[250], int i);
 
 int main()
 {
-	int i = 0;
+	int i = 5;
 	int choix;
 
 	Animaux* animaux[250];
 
-	/*animaux[0] = new Tigre("Alice", 120.8);
+	animaux[0] = new Tigre("Alice", 120.8);
 	animaux[1] = new Singe("Bob", 10.5, true);
 	animaux[2] = new Singe("Monke", 8.7, false);
 	animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
-	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);*/
+	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
 
 	do {
 
@@ -37,8 +37,7 @@ int main()
 		std::cout << "3 : pour ajouter un rhinocéros " << std::endl;
 		std::cout << "4 : Afficher " << std::endl;
 		std::cout << "5 : pour quitter " << std::endl;
-		std::cout << "6 : bonus effacer " << std::endl;
-//		std::cout << i << std::endl;
+		std::cout << "6 : bonus effacer " << i<< std::endl;
 		std::cin >> choix;
 		switch (choix)
 		{
@@ -169,28 +168,24 @@ int bonusEffacer(Animaux* animaux[250], int i) {
 			{
 				std::cout << "animal trouver" << std::endl;
 				check = true;
-				if (y == i - 1 && i > 1)
-
+				if ((y == i - 1 && i > 1) || (y == 0 && i == 1))                             
+																								
 				{
 					delete animaux[y];
-
-				}
-				else if (y == 0 && i == 1)
-				{
-					delete animaux[y];
+					i = i - 1;
 				}
 				else
 				{
 					for (y; y < i - 1; y++)
 					{
 						animaux[y] = animaux[y + 1];
+						i = i - 1;
 					}
-
 				}
 			}
-
+			
 		}
-		i = i - 1;
+		
 		if (!check) {
 			std::cout << "animal introuvable" << std::endl;
 		}
