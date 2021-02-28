@@ -24,12 +24,12 @@ int main()
 	int choix;
 
 	Animaux* animaux[250];
-	i=5;
-	animaux[0] = new Tigre("Alice", 120.8);
-	animaux[1] = new Singe("Bob", 10.5, true);
-	animaux[2] = new Singe("Monke", 8.7, false);
-	animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
-	animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
+	//i=5;
+	//animaux[0] = new Tigre("Alice", 120.8);
+	//animaux[1] = new Singe("Bob", 10.5, true);
+	//animaux[2] = new Singe("Monke", 8.7, false);
+	//animaux[3] = new Rhinoceros("Eve", 1812.3, 1000);
+	//animaux[4] = new Rhinoceros("Horny", 2021.5, 6000);
 
 	do {
 
